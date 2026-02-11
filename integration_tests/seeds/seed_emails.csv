@@ -1,0 +1,6 @@
+id,raw_email,expected
+1,John.Smith@Gmail.com,johnsmith@gmail.com
+2,  JANE@EXAMPLE.COM  ,jane@example.com
+3,bob.jones@yahoo.com,bob.jones@yahoo.com
+4,First.Last@gmail.com,firstlast@gmail.com
+5,,

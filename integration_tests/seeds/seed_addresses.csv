@@ -1,0 +1,6 @@
+id,raw_address,expected
+1,123 Main Street,123 MAIN ST
+2,  456 Oak Avenue  ,456 OAK AVE
+3,789 Elm Boulevard,789 ELM BLVD
+4,321 Pine Road,321 PINE RD
+5,654 Cedar Drive,654 CEDAR DR

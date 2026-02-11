@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: kanoniv
+    database: "{{ var('kanoniv_database', target.database) }}"
+    schema: "{{ var('kanoniv_schema', 'public') }}"
+    tables:
+      - name: external_entities
+        identifier: "{{ var('kanoniv_external_entities_table', 'external_entities') }}"
+      - name: canonical_entities
+        identifier: "{{ var('kanoniv_canonical_entities_table', 'canonical_entities') }}"
+      - name: identity_links
+        identifier: "{{ var('kanoniv_identity_links_table', 'identity_links') }}"
+      - name: match_results
+        identifier: "{{ var('kanoniv_match_results_table', 'match_results') }}"
+      - name: data_sources
+        identifier: "{{ var('kanoniv_data_sources_table', 'data_sources') }}"
+      - name: batch_runs
+        identifier: "{{ var('kanoniv_batch_runs_table', 'batch_runs') }}"

@@ -1,0 +1,82 @@
+version: 2
+
+models:
+  # -- Staging --
+  - name: stg_kanoniv__external_entities
+    description: "Thin rename/cast of the external_entities source table."
+    columns:
+      - name: external_entity_id
+        tests:
+          - not_null
+
+  - name: stg_kanoniv__canonical_entities
+    description: "Thin rename/cast of the canonical_entities source table."
+    columns:
+      - name: canonical_entity_id
+        tests:
+          - not_null
+
+  - name: stg_kanoniv__identity_links
+    description: "Thin rename/cast of the identity_links source table."
+    columns:
+      - name: link_id
+        tests:
+          - not_null
+
+  - name: stg_kanoniv__match_results
+    description: "Thin rename/cast of the match_results source table."
+    columns:
+      - name: match_id
+        tests:
+          - not_null
+
+  - name: stg_kanoniv__data_sources
+    description: "Thin rename/cast of the data_sources source table."
+    columns:
+      - name: source_id
+        tests:
+          - not_null
+
+  - name: stg_kanoniv__batch_runs
+    description: "Thin rename/cast of the batch_runs source table."
+    columns:
+      - name: batch_id
+        tests:
+          - not_null
+
+  # -- Intermediate --
+  - name: int_kanoniv__entity_source_map
+    description: >
+      Joins identity links with external entities and data sources
+      to show which source records merged into each canonical entity.
+
+  - name: int_kanoniv__match_summary
+    description: >
+      Aggregates match decisions per batch run — counts and average
+      confidence by decision type.
+
+  # -- Marts --
+  - name: kanoniv__canonical_overview
+    description: >
+      Golden-record overview: canonical entities enriched with source
+      counts, first/last seen timestamps.
+    columns:
+      - name: canonical_entity_id
+        tests:
+          - unique
+          - not_null
+
+  - name: kanoniv__source_lineage
+    description: >
+      Complete source-to-canonical mapping with data source names,
+      useful for lineage audits.
+
+  - name: kanoniv__match_quality
+    description: >
+      Match decision quality metrics per batch run: counts and
+      average confidence by decision type.
+
+  - name: kanoniv__batch_performance
+    description: >
+      Operational metrics per batch run: duration, status,
+      record counts, and match statistics.

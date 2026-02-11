@@ -1,0 +1,6 @@
+id,raw_name,expected
+1,  Dr. John Smith Jr  ,JOHN SMITH
+2,Mrs. Jane Doe,JANE DOE
+3,Bob Jones III,BOB JONES
+4,alice williams,ALICE WILLIAMS
+5,,

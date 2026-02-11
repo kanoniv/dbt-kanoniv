@@ -1,0 +1,16 @@
+name: 'dbt_kanoniv_integration_tests'
+version: '0.1.0'
+config-version: 2
+
+require-dbt-version: [">=1.3.0", "<2.0.0"]
+
+profile: 'integration_tests'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
