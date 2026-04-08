@@ -14,3 +14,11 @@ macro-paths: ["macros"]
 clean-targets:
   - "target"
   - "dbt_packages"
+
+seeds:
+  dbt_kanoniv_integration_tests:
+    seed_phones:
+      +column_types:
+        raw_phone: varchar
+        expected: varchar
+        country: varchar

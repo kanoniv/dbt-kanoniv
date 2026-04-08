@@ -8,9 +8,9 @@ select
     batch_id,
     decision,
     count(*)           as match_count,
-    avg(score)         as avg_score,
-    min(score)         as min_score,
-    max(score)         as max_score
+    avg(confidence)    as avg_score,
+    min(confidence)    as min_score,
+    max(confidence)    as max_score
 
 from match_results
 

@@ -9,7 +9,6 @@ select
     name            as source_name,
     source_type,
     config,
-    created_at,
-    updated_at
+    created_at
 
 from source

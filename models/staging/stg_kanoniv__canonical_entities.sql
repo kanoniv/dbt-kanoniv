@@ -7,7 +7,11 @@ with source as (
 select
     id              as canonical_entity_id,
     entity_type,
-    data,
+    canonical_data,
+    field_provenance,
+    confidence_score,
+    version,
+    state,
     created_at,
     updated_at
 

@@ -24,11 +24,11 @@ select
     l.link_type,
     e.external_id,
     e.entity_type,
-    e.data         as external_data,
+    e.raw_data     as external_data,
     d.source_id,
     d.source_name,
     d.source_type,
-    e.created_at   as external_created_at,
+    e.ingested_at  as external_created_at,
     l.created_at   as linked_at
 
 from links l
@@ -37,4 +37,4 @@ inner join external_entities e
     on l.external_entity_id = e.external_entity_id
 
 inner join data_sources d
-    on e.source_id = d.source_id
+    on e.data_source_id = d.source_id

@@ -10,7 +10,7 @@ select
     external_entity_id,
     confidence,
     link_type,
-    created_at,
-    updated_at
+    matched_on,
+    created_at
 
 from source

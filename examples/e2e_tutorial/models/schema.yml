@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_identity__spine
+    description: "Normalized identity spine from 5 source systems using dbt-kanoniv macros."
+    columns:
+      - name: record_id
+        tests:
+          - not_null
+          - unique
+
+  - name: int_identity__blocking
+    description: "Candidate pairs generated via dbt-kanoniv blocking keys."
+
+  - name: int_identity__scoring
+    description: "Scored pairs above match threshold (4.0)."
+
+  - name: int_identity__clusters
+    description: "Connected components via label propagation."
+    columns:
+      - name: record_id
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_customers
+    description: "Golden customer records with survivorship."
+    columns:
+      - name: resolved_entity_id
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_resolution_metrics
+    description: "Resolution quality metrics."

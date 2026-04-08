@@ -27,7 +27,7 @@ source_stats as (
 select
     c.canonical_entity_id,
     c.entity_type,
-    c.data,
+    c.canonical_data,
     coalesce(s.source_record_count, 0) as source_record_count,
     coalesce(s.source_count, 0)        as source_count,
     s.first_seen_at,

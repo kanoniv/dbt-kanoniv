@@ -6,11 +6,13 @@ with source as (
 
 select
     id              as external_entity_id,
-    source_id,
+    data_source_id,
     external_id,
     entity_type,
-    data,
-    created_at,
-    updated_at
+    raw_data,
+    normalized_data,
+    ingested_at,
+    batch_id,
+    content_hash
 
 from source

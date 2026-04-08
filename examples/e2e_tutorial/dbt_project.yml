@@ -1,0 +1,28 @@
+name: 'kanoniv_e2e_tutorial'
+version: '0.1.0'
+config-version: 2
+
+require-dbt-version: [">=1.3.0", "<2.0.0"]
+
+profile: 'tutorial'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+vars:
+  kanoniv_default_country: 'US'
+  kanoniv_email_normalize_gmail: true
+
+models:
+  kanoniv_e2e_tutorial:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: table
+    marts:
+      +materialized: table

@@ -9,9 +9,10 @@ select
     batch_id,
     entity_a_id,
     entity_b_id,
-    score,
+    confidence,
     decision,
-    details,
+    rules_applied,
+    explanation,
     created_at
 
 from source
