@@ -1,0 +1,12 @@
+integration_tests:
+  target: postgres
+  outputs:
+    postgres:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: 5432
+      user: "{{ env_var('POSTGRES_USER', 'dbt_test') }}"
+      pass: "{{ env_var('POSTGRES_PASSWORD', 'dbt_test') }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'dbt_test') }}"
+      schema: dbt_kanoniv_integration
+      threads: 1
